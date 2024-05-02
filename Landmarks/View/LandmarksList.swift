@@ -7,14 +7,25 @@
 
 import SwiftUI
 
+@available(iOS 17.0, *)
 struct LandmarksList: View {
     var body: some View {
-        List(landmarks, id: \.id) { landmark in
-            LandmarkRow(landmark: landmark)
+        NavigationSplitView {
+            List(landmarks) { landmark in
+                NavigationLink {
+                    LandmarkDetail()
+                } label: {
+                    LandmarkRow(landmark: landmark)
+                }
+            }
+            .navigationTitle("Landmarks")
+        } detail: {
+            Text("Select a Landmark")
         }
     }
 }
 
+@available(iOS 17.0, *)
 #Preview {
     LandmarksList()
 }
