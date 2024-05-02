@@ -8,6 +8,7 @@
 import SwiftUI
 
 @main
+@available(iOS 17.0, *)
 struct LandmarksApp: App {
     var body: some Scene {
         WindowGroup {
